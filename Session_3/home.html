@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Girls Who Code Session 2</title>
+  <script src="javascript.js"></script>
+</head>
+
+<body>
+    <h1>This is a header!</h1>
+    <p>This is paragraph text. You can <i>italicize</i>, <b>bold</b>, <u>underline</u>, or <i><b>some</b> <u>combination!</u></i></p>
+
+    <input id="string_check" type="text" name="string_var" placeholder="You can write text here.">
+    <input id="num_check" type="number" value=0>
+    <input id="bool_check" type="checkbox"> To check or not to check...?
+    <br> <!-- This is just a line break - it's kind of like pressing "Enter" in Microsoft Word -->
+    <br>
+    <button id="but" onclick="button_clicked()">Click me!!</button>
+    <input type="button" value="Refresh Page" onClick="window.location.reload()">
+    
+    <div id="image_holder"></div>
+    <script>
+        var div = document.getElementById('image_holder');
+        
+        function button_clicked() {
+            string_in_first_box = document.getElementById("string_check").value;
+            number_in_second_box = document.getElementById("num_check").value;
+            is_box_checked = document.getElementById("bool_check").checked;
+            
+            if (is_box_checked == true && string_in_first_box == "kitty") {
+                var cat1 = document.createElement("img");
+                cat1.src = 'https://usercontent2.hubstatic.com/12593011_f520.jpg';
+                div.appendChild(cat1);
+            }
+            
+            else if (is_box_checked == false && string_in_first_box == "puppies!!") {
+                for (i = 0; i < number_in_second_box; i++){
+                    dogs = document.createElement("img")
+                    dogs.src = 'https://moderndogmagazine.com/sites/default/files/images/articles/top_images/PeopleFood.jpg'
+                    div.appendChild(dogs);
+                }
+            }
+            
+            else if (is_box_checked == true && number_in_second_box < 5 && string_in_first_box == "mystery!") {
+                mystery_image = document.createElement("img")
+                picture_array = ['http://2.bp.blogspot.com/-2gvaMo_c50s/UNQts9GCAuI/AAAAAAAAA-4/W6hd_SwueJo/s1600/Silly+Funny+Squirrel.jpg',
+                                 'https://external-preview.redd.it/Qp-quDLuUc2CLKtb1volx8XNFwjoX-J6BVP5iXXvVSY.jpg?width=640&crop=smart&auto=webp&s=cf3796cc4d8833aaf3ba38c0aec9090d6d833c51',
+                                 'https://i.pinimg.com/originals/78/b8/a5/78b8a51098ef44932f2c459e23861b61.jpg',
+                                 'https://static.boredpanda.com/blog/wp-content/uuuploads/cute-baby-animals/cute-baby-animals-10.jpg',
+                                 'http://awesoroo.com/wp-content/uploads/2018/03/cute-animal.jpg']
+                mystery_image.src = picture_array[number_in_second_box]
+                div.appendChild(mystery_image);
+            }
+            
+            
+//            if () { // Put some conditions in here!
+//                your_image = document.createElement("img")
+//                your_image.src = "" // You can copy/paste your own URL here!
+//                div.appendChild(your_image)
+//                }
+            
+        }
+        
+        
+    </script>
+    
+    
+</body>
+</html>

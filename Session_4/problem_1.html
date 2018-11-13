@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Girls Who Code Session 4</title>
+</head>
+
+<body>
+    <h1>Problem 1</h1>
+    <p>There have been a bunch of cats and dogs which got loose recently! Luckily, they all have tags which list their owners' names. Furthermore, being the good owners they are, a bunch of people 
+        have called into the shelter asking to be contacted if their pets show up, but not everyone's pet has shown up yet. You're in charge of making sure that each owner gets notified that their pet has arrived
+        , and as an aspiring software engineer, you've decided to write a program to do the work for you!</p>
+
+    <p>You're going to be filling in code inside the <i>shelter()</i> function. The function takes in two <b>arguments</b>: an ARRAY of people's names, and a DICTIONARY of pets' names and their owners.
+        The function should <b>return</b> an ARRAY of people whose pets are at the shelter!</p>
+        <h3><u>Example</u></h3>
+        <p>Dictionary of owners who have called in: owners = {"Bob" : "Fluffy", "Joanne" : "Spike", "Alex" : "Fido"}<br>
+           Array of pets at the shelter: pets = ["Fluffy", "Spike"]</p>
+        <p>Calling the <i>shelter</i> function: shelter(owners, pets) --> ["Bob", "Joanne"]</p>
+
+    <br> <!-- This is just a line break - it's kind of like pressing "Enter" in Microsoft Word -->
+    <br>
+    <button id="but" onclick="run_tests()">Run the function!</button>
+    
+    <div id="image_holder"></div>
+    <script>
+        var div = document.getElementById('image_holder');
+        
+        // Read the comments!
+        function shelter(owners_array, pets_dict) {
+            pets = [] // This is an empty array that we're going to put the pets who can go home into
+            array_length = 0 // Change this to the length of 'owners_array'
+            for (i = 0; i < array_length; i++) {
+                owner_name = "" // Change this variable to the actual owner's name!
+                if (owner_name in pets_dict) {
+                    pet_name = "" // Change this variable to get the pet name from pets_dict
+                    pets.push(pet_name)
+                }
+            }
+            return pets
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // Don't touch any of this code! This just runs the tests to make sure
+        // your shelter() function is correct!
+        function run_tests() {
+//            test_3()
+            if (test_1() && test_2() && test_3()) {
+                console.log("All passed!")
+                congrats_image = document.createElement("img")
+                congrats_image.src = "http://img.memecdn.com/congratulations-puppy_o_2325185.jpg"
+                div.appendChild(congrats_image);
+            }
+        }
+        
+        function test_1() {
+            test_1_pets_dict = {"Bob" : "Fluffy"}
+            test_1_owners_array = ["Bob"]
+            expected_answer = ["Fluffy"]
+            shelter_answer = shelter(test_1_owners_array, test_1_pets_dict)
+            if (expected_answer.length != shelter_answer.length) {
+                console.log("Failed Test 1")
+                console.log("--------------")
+                console.log('The expected answer is: ["Fluffy"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                return false
+            }
+            for (i = 0; i < expected_answer.length; i++) {
+                if (expected_answer[i] != shelter_answer[i]) {
+                    console.log("Failed Test 1")
+                    console.log("--------------")
+                    console.log('The expected answer is: ["Fluffy"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                    return false
+                }
+            }
+            console.log("Passed Test 1!")
+            return true
+        }
+            
+        function test_2() {
+            test_2_pets_dict = {"Bob" : "Fluffy", "Carol" : "Spike", "Joanne" : "Fido"}
+            test_2_owners_array = ["Bob", "Carol", "Walter", "John", "Joanne"]
+            expected_answer = ["Fluffy", "Spike", "Fido"]
+            shelter_answer = shelter(test_2_owners_array, test_2_pets_dict)
+            if (expected_answer.length != shelter_answer.length) {
+                console.log("Failed Test 1")
+                console.log("--------------")
+                console.log('The expected answer is: ["Fluffy", "Spike", "Fido"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                return false
+            }
+            for (i = 0; i < expected_answer.length; i++) {
+                if (expected_answer[i] != shelter_answer[i]) {
+                    console.log("Failed Test 2")
+                    console.log("--------------")
+                    console.log('The expected answer is: ["Fluffy", "Spike", "Fido"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                    return false
+                }
+            }
+            console.log("Passed Test 2!")
+            return true
+        }
+            
+        function test_3() {
+            test_3_pets_dict = {"Bob" : "Fluffy", "Carol" : "Spike", "Joanne" : "Fido"}
+            test_3_owners_array = ["Bob", "Walter", "Joanne"]
+            expected_answer = ["Fluffy", "Fido"]
+            shelter_answer = shelter(test_3_owners_array, test_3_pets_dict)
+            if (expected_answer.length != shelter_answer.length) {
+                console.log("Failed Test 1")
+                console.log("--------------")
+                console.log('The expected answer is: "Fluffy", "Fido"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                return false
+            }
+            for (i = 0; i < expected_answer.length; i++) {
+                if (expected_answer[i] != shelter_answer[i]) {
+                    console.log("Failed Test 3")
+                    console.log("--------------")
+                    console.log('The expected answer is: ["Fluffy", "Fido"] - your function returned: [' + shelter_answer.join(", ") + "]")
+                    return false
+                }
+            }
+            console.log("Passed Test 3!")
+            return true
+        }
+    </script>
+    
+    
+</body>
+</html>
